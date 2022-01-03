@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pull Requests Report for {{repo_name}}</title>
+</head>
+<body>
+    <h1>Pull Requests Report for {{repo_name}}</h1>
+    <h2>Open Pull Requests</h2>
+    <p>Below is the open pull requests with updates after {{start_date}}.</p>
+    <table>
+        <tr>
+        <th>Number</th>
+        <th>Last Updated</th>
+        <th>Title</th>
+        <th>Comment Total</th>
+        </tr>
+   {% for pr in open_prs %}
+        <tr>
+         <td>{{pr.number}}</td>
+         <td>{{pr.updated_at}}</td>
+         <td><a href="{{pr.html_url}}">{{pr.title}}</a></td>
+         <td>{{pr.comment_total}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <h2>Closed Pull Requests</h2>
+    <p>Below is the closed pull requests with updates after {{start_date}}.</p>
+    <table>
+        <tr>
+        <th>Number</th>
+        <th>Merged Date</th>
+        <th>Title</th>
+        <th>Comment Total</th>
+        </tr>
+   {% for pr in closed_prs %}
+        <tr>
+         <td>{{pr.number}}</td>
+         <td>{{pr.merged_at}}</td>
+         <td><a href="{{pr.html_url}}">{{pr.title}}</a></td>
+         <td>{{pr.comment_total}}</td>
+        </tr>
+    {% endfor %}
+    </table>    
+</body>
+</html>

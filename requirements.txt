@@ -1,0 +1,4 @@
+sendgrid
+PyGithub
+yagmail
+jinja2

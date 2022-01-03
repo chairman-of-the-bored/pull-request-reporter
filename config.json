@@ -1,0 +1,10 @@
+{
+    "prior_weeks" : 1,
+    "github" : {
+        "repo" : "nim-lang/Nim"
+    },
+    "addresses" :{
+        "from" : "email",
+        "to" : ["oneemail","twoemail"]
+    }
+}
