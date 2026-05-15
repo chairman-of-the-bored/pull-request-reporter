@@ -1,6 +1,6 @@
 from datetime import date
 from jinja2 import Template
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 
 @dataclass()
 class PrReport:
@@ -12,9 +12,4 @@ class PrReport:
 def render_content(pr_report):
     with open('template.html.jinja', 'r') as tf:
         t = Template(tf.read())
-        return t.render(
-            repo_name=pr_report.repo_name,
-            start_date=pr_report.start_date,
-            open_prs=pr_report.open_prs,
-            closed_prs=pr_report.closed_prs,
-        )
+        return t.render(asdict(pr_report))
