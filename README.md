@@ -32,7 +32,7 @@ pip install -r requirements.txt
         "repo" : "<repo_name>"
     },
     "addresses" :{
-        "from" : "<sending address",
+        "from" : "<sending address>",
         "to" : [<list of recipients>]
     }
 }
