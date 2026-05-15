@@ -22,14 +22,17 @@ def merge_configs():
     return config, secrets
 
 if __name__ == "__main__":
-    c, s = merge_configs()
+    c, s = merge_configs() # c is for config, and s is for secrets
 
     today = datetime.date.today()
     margin = datetime.timedelta(weeks=c['prior_weeks'])
     prior_week = today - margin
 
     repo = c['github']['repo']
+    # The pr_report is a dataclass in modelview.py
     pr_report = ghclient.get_pr_report(s['github']['access_token'], repo, prior_week)
+
+    #The content returned is html rendered from template.html.jinja
     content = modelview.render_content(pr_report)
     with open('report.html', 'w') as rf:
         rf.write(content)

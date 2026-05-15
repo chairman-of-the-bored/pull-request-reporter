@@ -8,6 +8,8 @@ def get_pr_report(access_token, repo_name, start_date):
 
      repo = ghclient.get_repo(repo_name)
      prs = repo.get_pulls(state='all', sort='updated', direction='desc')
+     #Go through each pr and add it to one of 2 lists.
+     # also calc the "comment total"
      for pr in prs:
           if pr.updated_at.date() < start_date: #prs are descending with time
                break
