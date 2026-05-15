@@ -1,3 +1,6 @@
+# Fetches open and closed pull requests from a GitHub repository for a
+# configurable time window, renders them into an HTML report, and emails
+# the report to a list of recipients.
 import mailclient
 import ghclient
 import modelview
